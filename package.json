@@ -1,0 +1,70 @@
+{
+  "name": "clinicaltrialsgov-ts",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Javascript / Typescript wrapper for Clinicaltrials.gov API",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "react-native": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "browser": "./dist/index.umd.js",
+      "react-native": "./dist/index.esm.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "clinical-trials",
+    "api",
+    "typescript",
+    "javascript",
+    "sdk",
+    "clinicaltrials.gov"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raiyansayeed/clinicaltrialsgov-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raiyansayeed/clinicaltrialsgov-ts/issues"
+  },
+  "homepage": "https://github.com/raiyansayeed/clinicaltrialsgov-ts#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c --watch",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "generate-client": "openapi-ts --input ctg-oas-v2.yaml --output ./src/client --client @hey-api/client-fetch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Raiyan Sayeed",
+  "license": "MIT",
+  "devDependencies": {
+    "@hey-api/openapi-ts": "^0.80.1",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "rollup": "^4.46.2",
+    "rollup-plugin-dts": "^6.2.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@hey-api/client-fetch": "^0.13.1"
+  }
+}
